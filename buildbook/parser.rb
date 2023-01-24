@@ -6,13 +6,14 @@ require_relative 'destinations/file_destination'
 
 module Buildbook
   class Parser
-    def self.run(arg1, arg2)
-      new(source: arg1, changes: arg2).process
+    def self.run(arg1, arg2, arg3)
+      new(source: arg1, changes: arg2, output: arg3).process
     end
 
-    def initialize(source:, changes:)
+    def initialize(source:, changes:, output:)
       @source = source
       @changes = changes
+      @output = output
       @data = {}
     end
 
@@ -21,7 +22,7 @@ module Buildbook
 
       process_changes Changes::JsonChange, @changes
 
-      destination Destinations::FileDestination
+      destination Destinations::FileDestination, @output
     end
 
     private
@@ -34,8 +35,8 @@ module Buildbook
       @data = type.new(filename).process
     end
 
-    def destination(destination)
-      destination.process(@data)
+    def destination(destination, filename)
+      destination.process(@data, filename)
     end
   end
 end

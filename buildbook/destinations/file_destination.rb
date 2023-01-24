@@ -3,8 +3,8 @@
 module Buildbook
   module Destinations
     class FileDestination
-      def self.process(records)
-        new(data: records).process
+      def self.process(records, filename)
+        new(data: records, filename: filename).process
       end
 
       def initialize(data:, filename: 'output.json')

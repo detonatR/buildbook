@@ -1,0 +1,29 @@
+{
+  "changes": [
+    {
+      "type" : "PlaylistsSong",
+      "key": "CREATE",
+      "input": {
+        "playlist_id" : "2",
+        "song_id": "1"
+      }
+    },
+    {
+      "type" : "Playlist",
+      "key" : "CREATE",
+      "input" : {
+        "owner_id": "4",
+        "song_ids": [
+          "3"
+        ]
+      }
+    },
+    {
+      "type": "Playlist",
+      "key" : "DESTROY",
+      "input" : {
+        "id" : "1"
+      }
+    }
+  ]
+}

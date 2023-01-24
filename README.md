@@ -16,8 +16,6 @@ To run the application, run the ruby script with options:
 | changes | The file that holds the batch of changes to run against the data | changes.json |
 | output  | The file to output the mutated data                              | output.json  |
 
-Your README describes what changes you would need to make in order to scale this application to handle very large input files and/or very large changes files. Just describe these changes — please do not implement a scaled-up version of the application.
-
 I was able to put in an hour total of development time on this using inspiration from previous work. I treated this as a small ETL process, where you'd have one source of data and some transformations to that data, before loading it somewhere else. I tried to come up with a structure that would allow for something flexible, with inspiration from the Kiba gem on transformations, sources, etc. Keeping things isolated also allows for easier testing! ... Which this app has none of.
 
 Some places were created in a flexible way, while others are hardcoded to a specific path (transformers and the data expected being json). This is done just to show how things could be built to support additional requirements etc and for timeboxing purposes.
